@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.4.1/jquery.js"></script>
+	<title>img Show</title>
+	<style type="text/css">
+		#imgid{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div style="width:100%">
+<img id="imgid" src="images/eg_3.2.png"/>
+</div>
+<script type="text/javascript">
+var img=document.getElementById("imgid");
+img.onload = function() { //保证图片加载完成
+      function realWid(img){ //获取图片原图函数
+		var image=new Image();//新定义一个图片
+		image.src=img.src;	//获取传入img的图片赋值给
+		var imgRealWidth=image.width;//获取到图片原图的大小
+		return imgRealWidth;	//返回需要的值
+	}
+	var img=document.getElementById("imgid");
+	var imgW=realWid(img); //执行该图片获取原图函数
+	if(imgW<1024){//如果图片小于1024（随意更改）就显示原图
+	 	$("#imgid").css("width",imgW).css("margin","0 auto");
+	 	alert("aaa");
+	 	}else{//否则会太大 让他100%显示就好
+	 	$("#imgid").css("width","100%");
+	 }      
+}
+</script>
+</body>
+</html>
