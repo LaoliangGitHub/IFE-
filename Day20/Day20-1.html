@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body> 
+<input id="name" type="text" onkeypress="EnterPress(event)" onkeydown="EnterPress()" />    
+<button id="submit-btn">Submit</button>
+<script> 
+var namevalue = document.getElementById("name");
+var submitbtn = document.getElementById("submit-btn");
+submitbtn.onclick=function(){
+	alert(namevalue.value);
+}
+function EnterPress(e){ //传入 event 
+var e = e || window.event; 
+    if(e.keyCode == 13){ //获取键盘keyCode 值 对应按键
+        console.log(namevalue.value);
+    }else if(e.keyCode == 27){
+    	namevalue.value="";
+    }
+} 
+</script> 
+</body> 
